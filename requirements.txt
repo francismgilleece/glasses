@@ -1,0 +1,42 @@
+# Core Dependencies
+luma.oled>=3.12.0          # OLED display driver
+Pillow>=10.0.0             # Image processing for display
+RPi.GPIO>=0.7.1            # GPIO control for Raspberry Pi
+gpiozero>=1.6.2            # High-level GPIO interface
+
+# Communication
+requests>=2.31.0           # HTTP client for web APIs
+aiohttp>=3.9.0             # Async HTTP client
+websockets>=12.0           # WebSocket client for real-time data
+pybluez>=0.23              # Bluetooth communication (classic)
+bleak>=0.21.0              # Bluetooth Low Energy
+
+# Data Processing
+pydantic>=2.5.0            # Data validation and settings
+PyYAML>=6.0.1              # YAML configuration files
+structlog>=23.2.0          # Structured logging
+python-dateutil>=2.8.2    # Date/time utilities
+
+# Async and Event Handling
+asyncio-mqtt>=0.16.0       # MQTT client for IoT integration
+schedule>=1.2.0            # Job scheduling
+
+# Hardware-specific
+adafruit-circuitpython-displayio-ssd1306>=1.6.0  # SSD1306 OLED support
+adafruit-circuitpython-display-text>=3.1.0       # Text rendering
+
+# Lightweight alternatives for Pi Zero 2W
+numpy-lite>=1.21.0         # Lightweight numpy for basic operations
+pandas-lite>=1.5.0         # Lightweight pandas (if needed)
+
+# Security
+cryptography>=41.0.0       # Encryption for sensitive data
+bcrypt>=4.1.0              # Password hashing
+
+# Optional ML/AI (lightweight)
+tflite-runtime>=2.14.0     # TensorFlow Lite for on-device inference
+opencv-python-headless>=4.8.0  # Computer vision (headless for Pi)
+
+# System Utilities
+psutil>=5.9.0              # System and process monitoring
+watchdog>=3.0.0            # File system event monitoring 
