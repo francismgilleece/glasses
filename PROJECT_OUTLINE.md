@@ -171,4 +171,6 @@ glassesnew/
 
 1,1: Create outline page and outline framework for device plan. Order components.
 1,2: Categorize and localize dependencies for each package: eg processing, inputs, network. Set up information flow architecture. Create display manager module. 
+1,4: Create base input management module
+1,5: Create time input test script, test display and time inputs on hardware
 
