@@ -49,9 +49,22 @@ class DisplayController:
         try:
             # Initialize interface based on configuration
             if self.interface_type == 'i2c':
-                serial = i2c(port=1, address=0x3C)
+                i2c_port = self.config.get('i2c_port', 1)
+                i2c_address = int(self.config.get('i2c_address', '0x3C'), 16)
+                serial = i2c(port=i2c_port, address=i2c_address)
+                logger.info(f"I2C interface: port={i2c_port}, address=0x{i2c_address:02X}")
+                
             elif self.interface_type == 'spi':
-                serial = spi(device=0, port=0)
+                spi_device = self.config.get('spi_device', 0)
+                spi_port = self.config.get('spi_port', 0)
+                dc_pin = self.config.get('spi_dc_pin', 24)
+                rst_pin = self.config.get('spi_rst_pin', 25)
+                cs_pin = self.config.get('spi_cs_pin', 8)
+                
+                serial = spi(device=spi_device, port=spi_port, 
+                           gpio_DC=dc_pin, gpio_RST=rst_pin, gpio_CS=cs_pin)
+                logger.info(f"SPI interface: device={spi_device}, port={spi_port}, DC={dc_pin}, RST={rst_pin}, CS={cs_pin}")
+                
             else:
                 raise ValueError(f"Unsupported interface: {self.interface_type}")
             

@@ -14,13 +14,23 @@ logger = logging.getLogger(__name__)
 
 class DisplayConfig(BaseModel):
     """Display configuration settings."""
-    interface: str = Field(default="i2c", description="Interface type: i2c or spi")
+    interface: str = Field(default="spi", description="Interface type: i2c or spi")
     brightness: int = Field(default=255, ge=0, le=255, description="Display brightness (0-255)")
     rotation: int = Field(default=0, description="Display rotation in degrees")
     width: int = Field(default=128, description="Display width in pixels")
     height: int = Field(default=64, description="Display height in pixels")
+    
+    # I2C settings
     i2c_address: str = Field(default="0x3C", description="I2C address for display")
     i2c_port: int = Field(default=1, description="I2C port number")
+    
+    # SPI settings
+    spi_device: int = Field(default=0, description="SPI device number (0 or 1)")
+    spi_port: int = Field(default=0, description="SPI port number")
+    spi_dc_pin: int = Field(default=24, description="SPI Data/Command pin (GPIO)")
+    spi_rst_pin: int = Field(default=25, description="SPI Reset pin (GPIO)")
+    spi_cs_pin: int = Field(default=8, description="SPI Chip Select pin (GPIO)")
+    spi_speed: int = Field(default=8000000, description="SPI speed in Hz")
 
 
 class DeviceConfig(BaseModel):
